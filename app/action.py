@@ -26,12 +26,16 @@ class Action:
             'passwd': self.passwd,
             'code': self.code
         }
-        return self.session.post(login_url, data=form_data,
-                                 timeout=self.timeout, verify=False).json()
+        response = self.session.post(login_url, data=form_data,
+                                 timeout=self.timeout, verify=False)
+        print('login response.text:', response.text)
+        return response.json()
 
     def check_in(self) -> dict:
         check_in_url = self.format_url('user/checkin')
-        return self.session.post(check_in_url, timeout=self.timeout, verify=False).json()
+        response = self.session.post(check_in_url, timeout=self.timeout, verify=False)
+        print('check_in response.text:', response.text)
+        return response.json()
 
     def info(self) -> Tuple:
         user_url = self.format_url('user')
