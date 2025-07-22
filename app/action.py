@@ -26,7 +26,13 @@ class Action:
             'passwd': self.passwd,
             'code': self.code
         }
-        response = self.session.post(login_url, data=form_data,
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+            "Accept-Language": login_url,
+            "Referer": "https://www.google.com/",
+            "Connection": "keep-alive"
+        }
+        response = self.session.post(login_url, data=form_data,headers=headers,
                                  timeout=self.timeout, verify=False)
         print('login response.text:', response.text)
         return response.json()
