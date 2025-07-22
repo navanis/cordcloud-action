@@ -28,8 +28,8 @@ class Action:
         }
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
-            "Accept-Language": login_url,
-            "Referer": "https://www.google.com/",
+            "Accept-Language": "en-US,en;q=0.9",
+            "Referer": login_url,
             "Connection": "keep-alive"
         }
         response = self.session.post(login_url, data=form_data,headers=headers,
